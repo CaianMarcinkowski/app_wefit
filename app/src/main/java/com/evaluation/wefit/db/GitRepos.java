@@ -25,5 +25,4 @@ public class GitRepos {
     @ColumnInfo(name = "html_url")
     public String html_url;
 
-
 }

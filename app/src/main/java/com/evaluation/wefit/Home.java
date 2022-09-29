@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -39,8 +40,11 @@ public class Home extends AppCompatActivity {
     private static final String TAG_RESPONSE = "RESPONSE";
     TextView full_name, description, stargazers_count, language;
 
+    private static final String TYPE = "HOME";
+
     private Context context;
 
+    BottomNavigationItemView favorite, git;
     ImageView openDialog;
 
     @SuppressLint("MissingInflatedId")
@@ -54,7 +58,25 @@ public class Home extends AppCompatActivity {
         language = (TextView) findViewById(R.id.tv_language);
 
         openDialog = (ImageView) findViewById(R.id.iv_config);
-        
+        favorite = (BottomNavigationItemView) findViewById(R.id.star);
+        git = (BottomNavigationItemView) findViewById(R.id.git);
+
+        git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, Home.class);
+                startActivity(i);
+            }
+        });
+
+        favorite.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Home.this, Favorites.class);
+                startActivity(i);
+            }
+        });
+
         openDialog.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 showCustomDialog();
@@ -105,8 +127,14 @@ public class Home extends AppCompatActivity {
                 ArrayList<String> list_html_url = new ArrayList<>();
 
                 if (!response.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Erro ao buscar informações do Github, verificar endpoint", Toast.LENGTH_SHORT).show();
-                    Log.i(TAG_RESPONSE, "Erro: " + response.code());
+                    if(response.code() == 404){
+                        Toast.makeText(getApplicationContext(), "Usuário não encontrado no GitHub!", Toast.LENGTH_SHORT).show();
+                    } else if(response.code() == 403){
+                        Toast.makeText(getApplicationContext(), "Erro ao buscar informações do Github", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.i(TAG_RESPONSE, "Erro: " + response.code());
+                    }
+
                 } else {
                     List<GitRepos> gitRepos = response.body();
 
@@ -130,7 +158,7 @@ public class Home extends AppCompatActivity {
                     }
                     recyclerView = findViewById(R.id.rvHome);
                     recyclerView.setLayoutManager(new LinearLayoutManager(Home.this));
-                    adapter = new AdapterHome(Home.this, list_full_name, list_description, list_stargazers_count, list_language, list_html_url);
+                    adapter = new AdapterHome(Home.this, list_full_name, list_description, list_stargazers_count, list_language, list_html_url, Home.this.TYPE);
                     recyclerView.setAdapter(adapter);
                 }
 

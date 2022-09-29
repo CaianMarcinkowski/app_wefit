@@ -35,6 +35,8 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
     private ArrayList<String> language = new ArrayList<>();
     private ArrayList<String> html_url = new ArrayList<>();
 
+    private String type;
+
     Context context;
 
     public static final String EXTRA_ID = "com.gtappdevelopers.gfgroomdatabase.EXTRA_ID";
@@ -49,7 +51,8 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
                        ArrayList<String> description,
                        ArrayList<Integer> stargazers_count,
                        ArrayList<String> language,
-                       ArrayList<String> html_url){
+                       ArrayList<String> html_url,
+                       String type){
         this.layoutInflater = LayoutInflater.from(context);
 
         this.full_name = full_name;
@@ -58,6 +61,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
         this.language = language;
         this.html_url = html_url;
         this.context = context;
+        this.type = type;
     }
 
     @NonNull
@@ -75,7 +79,9 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
         holder.stargazers_count.setText(stargazers_count.get(position).toString());
         holder.language.setText(language.get(position));
 
-
+        if(this.type.equalsIgnoreCase("FAVORITES")){
+            holder.btn_favorite.setVisibility(View.GONE);
+        }
 
         holder.btn_favorite.setOnClickListener(new View.OnClickListener(){
             @Override
