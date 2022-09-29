@@ -1,68 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F6F6F5"
     android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/ll_home"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="129dp"
-                    android:layout_height="78dp"
-                    android:src="@drawable/ic_action_logo_wefit" />
+    <LinearLayout
+        android:id="@+id/ll_home"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/iv_config"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="550px"
-                            android:layout_marginTop="21dp"
-                            android:layout_marginEnd="22dp"
-                            android:layout_marginBottom="29dp"
-                            android:src="@drawable/ic_action_logo_conf" />
-
-                </RelativeLayout>
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHome"
-            android:layout_width="wrap_content"
-            android:layout_height="500dp"
-            android:layout_above="@id/bn_home"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_max="200dp"
-            app:layout_constraintStart_toStartOf='@id/ll_home' />
+        <ImageView
+            android:layout_width="129dp"
+            android:layout_height="78dp"
+            android:src="@drawable/ic_action_logo_wefit" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/rvHome"
-            >
+            android:layout_height="match_parent">
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bn_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="start"
-                    app:layout_constraintTop_toTopOf="@id/rvHome"
-                    app:menu="@menu/bottom_navigation"
-                    tools:ignore="NotSibling" />
-
+            <ImageView
+                android:id="@+id/iv_config"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="550px"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="22dp"
+                android:layout_marginBottom="29dp"
+                android:src="@drawable/ic_action_logo_conf" />
         </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="520dp"
+        android:layout_above="@id/bn_home"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="200dp"
+        app:layout_constraintStart_toStartOf='@id/ll_home' />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/rvHome">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bn_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="start"
+            app:layout_constraintTop_toTopOf="@id/rvHome"
+            app:menu="@menu/bottom_navigation"
+            tools:ignore="NotSibling" />
+    </RelativeLayout>
 </LinearLayout>

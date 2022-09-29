@@ -20,7 +20,7 @@
             android:theme="@style/Theme.WeFit.NoActionBar"
             android:windowSoftInputMode="adjustNothing"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".Splashscreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,5 +34,4 @@
             android:theme="@style/Theme.WeFit.NoActionBar"
             android:windowSoftInputMode="adjustNothing"/>
     </application>
-
 </manifest>

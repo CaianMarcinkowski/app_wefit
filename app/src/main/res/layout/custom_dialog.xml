@@ -2,10 +2,11 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_margin="15px"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="20px"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
@@ -24,13 +25,14 @@
             android:layout_marginLeft="30px"
             android:text="Alterar usuário selecionado"
             android:textSize="20dp"
-            tools:ignore="MissingConstraints"/>
+            tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/ivCancelDialog"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
             android:layout_alignParentRight="true"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/ic_action_cancel" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -39,22 +41,22 @@
         android:id="@+id/et_dialog"
         android:layout_width="350dp"
         android:layout_height="43dp"
-        android:layout_marginTop="8dp"
         android:layout_marginLeft="20px"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_dialog_salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat" />
 
     <Button
         android:id="@+id/btn_dialog_salvar"
         android:layout_width="230dp"
         android:layout_height="38dp"
         android:layout_marginLeft="150px"
-        android:gravity="center"
         android:backgroundTint="#D9D9D9"
-        android:textColor="#000000"
+        android:gravity="center"
         android:text="Salvar"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints,TouchTargetSizeCheck"

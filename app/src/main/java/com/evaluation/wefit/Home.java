@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.evaluation.wefit.controller.AdapterHome;
-import com.evaluation.wefit.db.AppDataBase;
 import com.evaluation.wefit.models.GitRepos;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
@@ -33,6 +31,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+// Criado por Caian Marcinkowski Ferreira - 28/09/2022
+// GitHub: https://github.com/CaianMarcinkowski
+
+// Classe home onde sera mostrada todos os repositorios que serão recebidos do endpoint, em que é possivel favoritar no botão "FAVORITAR" e criar o cadastro no SQLite
 
 public class Home extends AppCompatActivity {
 
@@ -94,6 +97,11 @@ public class Home extends AppCompatActivity {
         dialog.show();
         Button submitButton = dialog.findViewById(R.id.btn_dialog_salvar);
         final EditText input_text = dialog.findViewById(R.id.et_dialog);
+        final ImageView close_dialog = dialog.findViewById(R.id.ivCancelDialog);
+
+        close_dialog.setOnClickListener((v) -> {
+            dialog.dismiss();
+        });
 
         submitButton.setOnClickListener((v) -> {
             searchRepos(input_text.getText().toString(), dialog);

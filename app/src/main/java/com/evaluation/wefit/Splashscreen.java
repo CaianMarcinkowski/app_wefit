@@ -6,7 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+// Criado por Caian Marcinkowski Ferreira - 28/09/2022
+// GitHub: https://github.com/CaianMarcinkowski
+
+// Tela de Splashscreen onde é mostrado o logo da WeFit e após um delay de 2000 Milissegundos é carregada a tela de Home
+
+public class Splashscreen extends AppCompatActivity {
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,13 +19,13 @@ public class MainActivity extends AppCompatActivity {
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override public void run() {
-                mostrarLogin();
+                mostrarHome();
             }
         }, 2000);
     }
 
-    private void mostrarLogin() {
-        Intent intent = new Intent(MainActivity.this, Home.class);
+    private void mostrarHome() {
+        Intent intent = new Intent(Splashscreen.this, Home.class);
         startActivity(intent);
         finish();
     }

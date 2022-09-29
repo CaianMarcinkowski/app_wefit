@@ -1,12 +1,9 @@
 package com.evaluation.wefit.controller;
 
-import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +21,11 @@ import com.evaluation.wefit.db.GitRepos;
 import com.evaluation.wefit.db.GitReposDao;
 
 import java.util.ArrayList;
-import java.util.List;
 
+// Criado por Caian Marcinkowski Ferreira - 28/09/2022
+// GitHub: https://github.com/CaianMarcinkowski
+
+//Adapter do RecyclerView para mostrar as informações de forma dinamica na Home e na Favoreites
 public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
 
     private LayoutInflater layoutInflater;
@@ -52,7 +52,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
                        ArrayList<Integer> stargazers_count,
                        ArrayList<String> language,
                        ArrayList<String> html_url,
-                       String type){
+                       String type) {
         this.layoutInflater = LayoutInflater.from(context);
 
         this.full_name = full_name;
@@ -79,11 +79,11 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
         holder.stargazers_count.setText(stargazers_count.get(position).toString());
         holder.language.setText(language.get(position));
 
-        if(this.type.equalsIgnoreCase("FAVORITES")){
+        if (this.type.equalsIgnoreCase("FAVORITES")) {
             holder.btn_favorite.setVisibility(View.GONE);
         }
 
-        holder.btn_favorite.setOnClickListener(new View.OnClickListener(){
+        holder.btn_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GitRepos gitRepos = new GitRepos();
@@ -126,7 +126,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
         return this.full_name.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView full_name, description, stargazers_count, language;
         Button btn_favorite;
@@ -143,7 +143,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder> {
             itemView.setOnClickListener(this);
         }
 
-        public void setItemClickListener(ItemClickListener itemClick){
+        public void setItemClickListener(ItemClickListener itemClick) {
             this.itemClickListener = itemClick;
         }
 

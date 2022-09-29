@@ -2,10 +2,8 @@ package com.evaluation.wefit;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -27,6 +25,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import java.util.ArrayList;
 import java.util.List;
 
+// Criado por Caian Marcinkowski Ferreira - 29/09/2022
+// GitHub: https://github.com/CaianMarcinkowski
+
+// Classe onde sera mostrado os repositórios do GitHub que foram marcados como favoritos na tela de Home, Repositórios que estão armazenados no SQLite
+
 public class Favorites extends AppCompatActivity {
 
     private static final String TAG_FAILURE = "FAILURE";
@@ -34,11 +37,8 @@ public class Favorites extends AppCompatActivity {
     private static final String TYPE = "FAVORITES";
     TextView full_name, description, stargazers_count, language;
 
-    private Context context;
-
     BottomNavigationItemView favorite, git;
     ImageView openDialog;
-    Button btn_favorite;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -71,6 +71,7 @@ public class Favorites extends AppCompatActivity {
             }
         });
 
+        openDialog.setVisibility(View.GONE);
         openDialog.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 showCustomDialog();
