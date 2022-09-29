@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="80px"
+    android:background="#F6F6F5">
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="190dp"
+        android:foregroundGravity="center"
+        android:background="@drawable/layout_shadow"
+        card_view:cardCornerRadius="2dp"
+        android:layout_margin="10px"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/id_title"
+            android:text="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"/>
+
+        <TextView
+            android:id="@+id/id_line"
+            android:text="_______________________________________________"
+            android:layout_width="match_parent"
+            android:textColor="#DADADA"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/id_description"
+            android:text="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="220dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"/>
+
+        <Button
+            android:id="@+id/btnFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Favoritar"
+            android:drawableLeft="@drawable/ic_action_star"
+            android:backgroundTint="#FAF3DC"
+            android:textColor="#FFD02C"
+            android:layout_marginTop="135dp"
+            android:layout_marginLeft="15dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="145dp"
+            android:layout_marginLeft="170dp"
+            android:src="@drawable/ic_action_star"
+            />
+
+        <TextView
+            android:id="@+id/tv_stargazers_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="148dp"
+            android:layout_marginLeft="200dp"
+            android:text="0"
+            />
+
+        <ImageView
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_marginTop="152dp"
+            android:layout_marginLeft="225dp"
+            android:src="@drawable/ic_action_ellipse"
+            />
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="147dp"
+            android:layout_marginLeft="245dp"
+            android:text="-"/>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
