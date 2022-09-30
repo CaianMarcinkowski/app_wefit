@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
     android:background="#F6F6F5"
+    android:layout_gravity="center"
     android:padding="80px">
 
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="190dp"
         android:layout_gravity="center"
         android:layout_margin="10px"
-        android:background="@drawable/layout_shadow"
+        android:background="#F6F6F5"
         android:foregroundGravity="center"
         card_view:cardCornerRadius="2dp"
         tools:ignore="MissingConstraints">
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="40dp"
+            android:padding="5dp"
             android:text="_______________________________________________"
             android:textAlignment="center"
             android:textColor="#DADADA" />
@@ -82,8 +83,9 @@
             android:id="@+id/tv_language"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5dp"
             android:layout_marginLeft="245dp"
-            android:layout_marginTop="147dp"
+            android:layout_marginTop="143dp"
             android:text="-" />
 
     </androidx.cardview.widget.CardView>
